@@ -39,7 +39,7 @@ def construit_un_mur():  #py:build_wall
     RUR._build_wall_()
 
 
-def transporte(obj=None):  #py:carries_object
+def transporte(obj=None):    #py:carries_object
     """ Indique si Reeborg transporte un ou des objets.
 
     Args:
@@ -60,10 +60,7 @@ def transporte(obj=None):  #py:carries_object
         >>> transporte("fraise")
         []
     """
-    if obj is not None:
-        ans = RUR._carries_object_(obj)
-    else:
-        ans = RUR._carries_object_()
+    ans = RUR._carries_object_(obj) if obj is not None else RUR._carries_object_()
     return list(ans)
 
 
@@ -136,7 +133,7 @@ def pas_de_surlignement():  #py:no_highlight
     RUR._no_highlight_()
 
 
-def objet_ici(obj=None):  #py:object_here
+def objet_ici(obj=None):    #py:object_here
     """ Indique si un ou des types d'objets se trouvent à la position du robot.
 
     Args:
@@ -157,10 +154,7 @@ def objet_ici(obj=None):  #py:object_here
         >>> objet_ici("fraise")
         []
     """
-    if obj is not None:
-        ans = RUR._object_here_(obj)
-    else:
-        ans = RUR._object_here_()
+    ans = RUR._object_here_(obj) if obj is not None else RUR._object_here_()
     return list(ans)  # convert from js list-like object to proper Python list
 
 
@@ -226,7 +220,7 @@ def couleur_de_trace(couleur):  #py:set_trace_color
     RUR._set_trace_color_(couleur)
 
 
-def style_de_trace(style="normal"):  #py:set_trace_style
+def style_de_trace(style="normal"):    #py:set_trace_style
     """Change le style de trace du robot.
 
        Args:
@@ -247,9 +241,7 @@ def style_de_trace(style="normal"):  #py:set_trace_style
         style = "thick"
     elif style == "normal":
         style = "default"
-    elif style == "invisible":
-        pass  # leave as is
-    else:
+    elif style != "invisible":
         raise ReeborgError("Valeur de style inconnue pour style_de_trace().")
     RUR._set_trace_style_(style)
 
